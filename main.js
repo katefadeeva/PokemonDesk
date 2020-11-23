@@ -2,8 +2,19 @@ function $getElByID(id) {
   return document.getElementById(id);
 }
 
-const $btn1 = $getElByID('btn-kick1');
-const $btn2 = $getElByID('btn-kick2');
+const btn1 = {
+  name: 'Thunder Jolt',
+  btn: $getElByID('btn-kick1'),
+  count: 0,
+  className: '.count-btn1'
+}
+
+const btn2 = {
+  name: 'Aqua Jet Jolt',
+  btn: $getElByID('btn-kick2'),
+  count: 0,
+  className: '.count-btn2'
+}
 
 const character = {
   name: 'Pikachu',
@@ -11,10 +22,10 @@ const character = {
   damageHP: 100,
   elHP: $getElByID('health-character'),
   elProgressbar: $getElByID('progressbar-character'),
-  changeHP: changeHP,
-  renderHP: renderHP,
-  renderHPLife: renderHPLife,
-  renderProgressbarHP: renderProgressbarHP,
+  changeHP,
+  renderHP,
+  renderHPLife,
+  renderProgressbarHP,
 }
 
 const enemy = {
@@ -23,20 +34,33 @@ const enemy = {
   damageHP: 100,
   elHP: $getElByID('health-enemy'),
   elProgressbar: $getElByID('progressbar-enemy'),
-  changeHP: changeHP,
-  renderHP: renderHP,
-  renderHPLife: renderHPLife,
-  renderProgressbarHP: renderProgressbarHP,
+  changeHP,
+  renderHP,
+  renderHPLife,
+  renderProgressbarHP,
 }
 
-clickButton($btn1, 30);
-clickButton($btn2, 15);
+clickButton(btn1, 30);
+clickButton(btn2, 15);
 
-function clickButton(btn, num) {
-  btn.addEventListener('click', () => {
+function clickButton(button, num) {
+  button.btn.addEventListener('click', () => {
     character.changeHP(random(num));
     enemy.changeHP(random(num));
+    countClick(button);
   });
+}
+
+function countClick(button) {
+  button.count++;
+  if (button.count >= 6) {
+    button.btn.disabled = true;
+  }
+  addCount(button);
+}
+
+function addCount(button) {
+  document.querySelector(button.className).innerText = `${6 - button.count} clicks left`;
 }
 
 function init() {
@@ -70,8 +94,8 @@ function changeHP(count) {
   if (this.damageHP <= 0) {
     this.damageHP = 0;
     alert('Бедный ' + this.name + ' проиграл!')
-    $btn1.disabled = true;
-    $btn2.disabled = true;
+    btn1.btn.disabled = true;
+    btn2.btn.disabled = true;
   }
 
   this.renderHP();
