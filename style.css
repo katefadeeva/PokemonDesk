@@ -35,13 +35,12 @@ body {
 }
 
 .control {
-    width: 325px;
-    height: 260px;
+    width: 350px;
     position: relative;
-    margin: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .playground {
@@ -276,10 +275,9 @@ body {
     outline: none !important;
     cursor: pointer;
     font-size: 18px;
+    width: 155px;
 }
-.button:first-child {
-    margin-right: 25px;
-}
+
 .button:after {
     content: "";
     position: absolute;
@@ -480,7 +478,7 @@ h1 {
     padding: 6px 0;
 }
 
-#logs p {
+#logs p, p {
     background-color: rgba(185, 223, 247, 0.7);
     width: 80%;
     margin: 0 auto 10px auto;
