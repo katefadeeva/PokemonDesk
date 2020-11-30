@@ -35,13 +35,12 @@ body {
 }
 
 .control {
-    width: 320px;
-    height: 260px;
+    width: 350px;
     position: relative;
-    margin: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .playground {
@@ -276,10 +275,9 @@ body {
     outline: none !important;
     cursor: pointer;
     font-size: 18px;
+    width: 155px;
 }
-.button:first-child {
-    margin-right: 25px;
-}
+
 .button:after {
     content: "";
     position: absolute;
@@ -301,6 +299,11 @@ body {
     background: -webkit-gradient(linear, left top, left bottom, from(#ffd78e), to(#ffc55b));
     background: linear-gradient(to bottom, #ffd78e, #ffc55b);
     box-shadow: 0 0 5px 2px white, 0 0 15px #ffe9c1, 0 3px 5px -2px rgba(0, 0, 0, 0.2);
+}
+
+.count-btn1,
+.count-btn2 {
+    font-size: 14px;
 }
 
 .candy {
@@ -475,7 +478,7 @@ h1 {
     padding: 6px 0;
 }
 
-#logs p {
+#logs p, p {
     background-color: rgba(185, 223, 247, 0.7);
     width: 80%;
     margin: 0 auto 10px auto;
