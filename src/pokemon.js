@@ -1,4 +1,4 @@
-import { winGame } from "../main.js";
+import { winGame } from "./main.js";
 
 class Selectors {
   constructor(name) {
