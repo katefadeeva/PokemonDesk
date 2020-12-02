@@ -1,4 +1,4 @@
-import {addResetGame} from "../main.js";
+import { winGame } from "../main.js";
 
 class Selectors {
   constructor(name) {
@@ -10,9 +10,10 @@ class Selectors {
 }
 
 class Pokemon extends Selectors {
-  constructor({ name, hp, type, selectors, attacks, img }) {
+  constructor({ name, hp, type, selectors, attacks, img, id }) {
     super(selectors);
     this.name = name;
+    this.id = id;
     this.hp = {
       current: hp,
       total: hp,
@@ -29,7 +30,7 @@ class Pokemon extends Selectors {
     this.hp.current -= count;
 
     if (this.hp.current <= 0) {
-      addResetGame(this.name);
+      winGame(this.elHP.id);
       this.hp.current = 0;
     }
 
