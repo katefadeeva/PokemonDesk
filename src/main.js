@@ -1,5 +1,5 @@
-import Pokemon from "./src/pokemon.js";
-import {addAttackButton} from "./src/button.js";
+import Pokemon from "./pokemon.js";
+import {addAttackButton} from "./button.js";
 
 let stateWin = false;
 const control = document.querySelector('.control');
